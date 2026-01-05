@@ -118,7 +118,10 @@ These dictionaries map method names to their implementation functions, enabling 
 
 **Goal**: Generate a complete synthetic dataset with known causal structure.
 
---> user supplies either a dataset or the number of samples (num_samples) that will be generated. If both are supplied, num_samples ius ignored and the X is used.
+--> *implements the SCM
+
+--> user supplies either a dataset or the number of samples (num_samples) that will be generated. If both are supplied, num_samples ius ignored and the X_given (baseline dataset) is used.
+
 --> 
 
 **Inner Workings**:
@@ -149,7 +152,7 @@ For variable Y with parents [X1, X2, Treatment]:
 **Goal**: Create a random causal graph structure suitable for simulation.
 
 **Inner Workings**:
-1. **Graph Model**: Uses Erdős-Rényi G(n,p) model
+1. **Graph Model**: a random graph model G(n,p)
    - Each potential edge exists with probability `p`
 2. **Ensures DAG Property**: 
    - Orders variables: given_vars → covariates → treatments → outcomes → censoring
