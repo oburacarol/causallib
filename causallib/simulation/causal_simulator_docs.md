@@ -72,6 +72,8 @@ CausalSimulator3(
 
 - **treatment_importances** (float or array): Weight of treatment effect on outcome
   - Values typically between 0 and 1
+  - treatment_importance = 0.8 indicates that the outcome will be affected 80% by treatment and 20% by all other predecessors.
+
 
 - **treatment_methods** (str): Method for treatment assignment
   - Options: `'gaussian'`, `'logistic'`, `'odds_ratio'`, `'quantile_gauss_fit'`, `'random'`
