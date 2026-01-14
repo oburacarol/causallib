@@ -342,3 +342,13 @@ X, propensities, (y0, y1) = sim.generate_data(num_samples=1000)
 - **Education**: Demonstrate concepts like confounding, effect heterogeneity
 - **ACIC Challenges**: Generate standardized datasets for competitions
 - **Sensitivity Analysis**: Understand how algorithms perform under different causal structures
+
+---
+## Personal Changes
+- Added beta to generate_data() function to assess the values of the coefficients from the model specified in the simulator
+
+
+
+---
+## Oddities 
+- 'beta' outputs coefficients for only few covariates from the initial 'X' dataset supplied 
