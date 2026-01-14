@@ -772,7 +772,13 @@ class CausalSimulator3(object):
 
         if not cf:  # dictionary is empty - outcome variable has no treatment parent
             cf = {"null": pd.DataFrame(data=None, index=X_parents.index, columns=["null"])}
-        cf = pd.DataFrame(cf)
+
+        # temporary solution for the value error
+        try:
+            cf = pd.DataFrame(cf)
+        except ValueError:
+            cf = cf
+
         return x_outcome, cf, beta
 
     def generate_censor_col(self, X_parents, link_type, snr, prob_category, outcome_type,
