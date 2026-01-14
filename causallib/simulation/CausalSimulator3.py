@@ -422,6 +422,7 @@ class CausalSimulator3(object):
             - **propensities** (*pd.DataFrame*): A (num_samples x num_treatments) matrix (or vector) of propensity
                                                  values of every treatment.
             - **counterfactuals** (*pd.DataFrame*): A (num_samples x num_outcomes) matrix -
+            - **beta**: beta coefficients for the covariates
         """
         if random_seed is not None:
             np.random.seed(random_seed)
@@ -515,7 +516,7 @@ class CausalSimulator3(object):
 
         # print X_latent.var(axis=0, ddof=1)
         # print X.var(axis=0, ddof=1)
-        return X, propensities, counterfactuals
+        return X, propensities, counterfactuals, beta
 
     def generate_covariate_col(self, X_parents, link_type, snr, prob_category, num_samples, var_name=None):
         """
@@ -773,6 +774,9 @@ class CausalSimulator3(object):
         if not cf:  # dictionary is empty - outcome variable has no treatment parent
             cf = {"null": pd.DataFrame(data=None, index=X_parents.index, columns=["null"])}
         cf = pd.DataFrame(cf)
+
+        cf = pd.DataFrame(cf)
+
         return x_outcome, cf, beta
 
     def generate_censor_col(self, X_parents, link_type, snr, prob_category, outcome_type,
