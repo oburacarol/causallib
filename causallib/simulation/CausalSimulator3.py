@@ -515,7 +515,7 @@ class CausalSimulator3(object):
 
         # print X_latent.var(axis=0, ddof=1)
         # print X.var(axis=0, ddof=1)
-        return X, propensities, counterfactuals
+        return X, propensities, counterfactuals, beta
 
     def generate_covariate_col(self, X_parents, link_type, snr, prob_category, num_samples, var_name=None):
         """
